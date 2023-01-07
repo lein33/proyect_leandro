@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {%block title%} Main {% endblock %}</title>
+    <link  href="{% static '/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <header class="cabecera">{%block header %}<h1 class="titulo1">Hola soy el main</h1> {% endblock %}</header>
+    {%block nav %}
+    <nav>
+        <ul>
+            
+            <span><li><a href="">principal</a></li></span>
+            <span><li><a href="">secundario</a></li></span>
+            
+        </ul>
+    </nav>
+    {% endblock %}
+    <div>
+        {%block content %}
+        <section>
+            <h2>hola</h2>
+            <h3>como</h3>
+            <p>estan</p>
+        </section>
+        {% endblock %}
+    </div>
+    <footer>
+        {%block footer %}
+        <em>Derechos reservados</em>
+        <p><small>&copy Andres</small></p>
+        {% endblock %}
+    </footer>
+</body>
+</html>

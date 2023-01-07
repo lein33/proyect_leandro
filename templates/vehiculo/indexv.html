@@ -1,0 +1,30 @@
+{% extends 'main/main.html'%}
+
+{%block title%}
+Vehiculo
+{% endblock %}
+
+{%block header %}
+    <h1 class="titulo1">
+        Crear vehiculo
+    </h1>
+{% endblock %}
+{%block nav %}
+    {% include 'vehiculo/barra_nav.html' %}
+{% endblock %}
+
+{%block content %}
+    <form method="post" class="form1">
+        {% csrf_token %}
+
+        {% for f in form %}
+        <div class="inputs">
+            <label class="etiquetas" for="{{f.auto_id}}">{{f.label}}</label>
+            {{f}}
+        </div>
+        <br>
+        {% endfor %}
+        
+        <button>Guardar</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'main/main.html'%}
+
+{%block title%}
+    TablesP
+{% endblock %}
+{%block header %}
+    <h1 class="titulo1">
+        Listar Usuarios
+    </h1>
+{% endblock %}
+{%block nav %}
+    {% include 'persona/barra_nav.html' %}
+{% endblock %}
+
+{%block content %}
+    <table class="table_persona">
+        <thead>
+            <tr>
+                <th>dni</th>
+                <th>nombre</th>
+                <th>edad</th>
+                <th>Sexo</th>
+                <th>Correo</th>
+                <th>Pais</th>
+                <th>Provincia</th>
+                <th>Direccion</th>
+                <th>Codigo postal</th>
+                <th>celular</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if object_list %}
+                {% for persona in object_list %}
+                    <tr>
+                        <td>{{persona.dni}}</td>
+                        <td>{{persona.nombre}}</td>
+                        <td>{{persona.edad}}</td>
+                        <td>{{persona.sexo}}</td>
+                        <td>{{persona.correo}}</td>
+                        <td>{{persona.pais}}</td>
+                        <td>{{persona.provincia}}</td>
+                        <td>{{persona.direccion}}</td>
+                        <td>{{persona.cod_postal}}</td>
+                        <td>{{persona.celular}}</td>
+                        <td> 
+                            <a href="{% url 'persona:persona_editar' persona.dni %}" class="btn_edit">editar</a>
+                            <a href="{% url 'persona:persona_eliminar' persona.dni %}" class="btn_del">eliminar</a>
+
+                        </td>
+                        
+                    </tr>
+                {% endfor %}
+            {% else %}
+                    <h2>No existen registros</h2>
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

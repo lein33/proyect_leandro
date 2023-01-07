@@ -1,0 +1,49 @@
+{% extends 'main/main.html'%}
+
+{%block title%}
+    TablesV
+{% endblock %}
+{%block header %}
+    <h1 class="titulo1">
+        Listar Vehiculo
+    </h1>
+{% endblock %}
+{%block nav %}
+    {% include 'persona/barra_nav.html' %}
+{% endblock %}
+
+{%block content %}
+    <table class="table_vehiculo">
+        <thead>
+            <tr>
+                <th>placa</th>
+                <th>marca</th>
+                <th>modelo</th>
+                <th>tipo</th>
+                <th>Color</th>
+                <th>cc</th>
+                <th>persona</th>
+                <th>mantenimiento</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if vehiculos %}
+                {% for v in vehiculos %}
+                    <tr>
+                        <td>{{v.placa}}</td>
+                        <td>{{v.marca}}</td>
+                        <td>{{v.modelo}}</td>
+                        <td>{{v.tipo}}</td>
+                        <td>{{v.color}}</td>
+                        <td>{{v.cc}}</td>
+                        <td>{{v.persona}}</td>
+                        <td>{{v.mantenimiento}}</td>
+                        
+                    </tr>
+                {% endfor %}
+            {% else %}
+                    <h2>No existen registros</h2>
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}
